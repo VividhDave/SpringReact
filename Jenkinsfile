@@ -7,7 +7,7 @@ pipeline {
             steps {
                 bat 'npm update'
                 bat 'npm install'
-                bat 'npm run build'
+                bat 'npm run build -wd SpringReact'
             }
         }
 
