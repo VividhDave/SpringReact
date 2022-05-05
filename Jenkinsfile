@@ -5,9 +5,9 @@ pipeline {
         
         stage('Build') {
             steps {
-                bat 'npm update -wd frontend'
-                bat 'npm install -wd frontend'
-                bat 'npm run build -wd frontend'
+                bat 'npm --prefix ./frontend/ update'
+                bat 'npm --prefix ./frontend/ install'
+                bat 'npm --prefix ./frontend/ run build'
             }
         }
 
