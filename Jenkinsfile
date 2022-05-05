@@ -5,33 +5,16 @@ pipeline {
         
         stage('Build') {
             steps {
+                bst 'npm update'
                 bat 'npm install'
+                bat 'npm run build'
             }
         }
-        
-        stage ('Compile Stage') {
-
-            steps {
-                withMaven(maven : 'maven3.8') {
-                    bat 'mvn clean compile'
-                }
-            }
-        }
-
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'maven3.8') {
-                    bat 'mvn test'
-                }
-            }
-        }
-
 
         stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven3.8') {
-                    bat 'mvn clean install -DskipTests'
+                    bat 'mvn clean install -DskipTests=true'
                 }
             }
         }
