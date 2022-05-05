@@ -5,7 +5,6 @@ pipeline {
         
         stage('Build') {
             steps {
-                bat 'del /frontend/package-lock.json'
                 bat 'npm --prefix /frontend/ update'
                 bat 'npm --prefix /frontend/ install'
                 bat 'npm --prefix /frontend/ run build'
